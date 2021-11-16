@@ -28,7 +28,7 @@ const Navigation = () => {
         <ul className="navigation-links">
           {
             primaryLinks.map((props) => (
-              <NavigationLink {...props} />
+              <NavigationLink key={props.name} {...props} />
             ))
           }
         </ul>

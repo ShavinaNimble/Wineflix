@@ -1,6 +1,7 @@
 import "./App.css";
 
-import Hero from "./components/header/Hero"
+import Hero from "./components/header/Hero";
+import WineList  from "./components/wine/WineList";
 
 const App = () => {
 
@@ -97,6 +98,14 @@ const App = () => {
     label: 'Wine',
   }];
 
+  const finishedWines = wines.filter(item => item.isFinished).map(item => {
+    return item;
+  });
+
+  const inProgressWines = wines.filter(item => !item.isFinished).map(item => {
+    return item;
+  });
+
   return (
     <div className="App">
       <Hero
@@ -106,123 +115,8 @@ const App = () => {
         description={heroContent.description}
       />
       <main>
-        <section className="category">
-          <h2>Drink Again</h2>
-          <ul>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <span className="new-badge">New!</span>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <span className="new-badge">New!</span>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <span className="new-badge">New!</span>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section className="category">
-          <h2>Keep Drinking</h2>
-          <ul>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="wine">
-                <img src="/red-wine.jpg" alt="Wine" />
-                <div className="amount-consumed">
-                  <progress min="0" max="100" value="22"></progress>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </section>
+        <WineList title="Drink Again" wines={finishedWines}  />
+        <WineList title="Keep Drinking" wines={inProgressWines}  />
       </main>
     </div>
   )
