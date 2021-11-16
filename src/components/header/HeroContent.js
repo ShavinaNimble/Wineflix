@@ -1,26 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import ButtonAction from '../global/ButtonAction'
 import { faPlay, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 
-const HeroContent = ({ content }) => {
+const HeroContent = ({ title, subtitle, imageUrl, description }) => {
   return (
     <div className="hero-content">
       <h2>
-        <img alt={content.title} src={content.imageUrl} />
+        <img alt={title} src={imageUrl} />
       </h2>
-      <h3>{content.subtitle}</h3>
-      <p>{content.description}</p>
+      <h3>{subtitle}</h3>
+      <p>{description}</p>
       <ul className="controls">
         <li>
-          <button className="primary-action">
-            <FontAwesomeIcon icon={faPlay} />
-            <span>Drink</span>
-          </button>
+          <ButtonAction classes="primary-action" icon={faPlay} text="Drink" />
         </li>
         <li>
-          <button className="secondary-action">
-            <FontAwesomeIcon icon={faInfoCircle} />
-            <span>More Info</span>
-          </button>
+          <ButtonAction classes="secondary-action" icon={faInfoCircle} text="More Info" />
         </li>
       </ul>
     </div>
