@@ -98,13 +98,9 @@ const App = () => {
     label: 'Wine',
   }];
 
-  const finishedWines = wines.filter(item => item.isFinished).map(item => {
-    return item;
-  });
+  const finishedWines = wines.filter(item => item.isFinished);
 
-  const inProgressWines = wines.filter(item => !item.isFinished).map(item => {
-    return item;
-  });
+  const inProgressWines = wines.filter(item => !item.isFinished);
 
   return (
     <div className="App">
